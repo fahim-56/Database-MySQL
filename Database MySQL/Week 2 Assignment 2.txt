@@ -1,0 +1,14 @@
+select first_name ,last_name,job_title 
+from employees ,jobs where employees.job_id = jobs.job_id ;
+
+select first_name ,last_name,job_title 
+from employees  join jobs on employees.job_id = jobs.job_id ;
+
+select first_name ,last_name,job_title 
+from employees  join jobs on employees.job_id = jobs.job_id 
+where salary = (select max(salary) from employees
+);
+
+select e.first_name as employee_name , m.first_name as manager
+from employees as e join  employees as m 
+on e.manager_id = m.employee_id
